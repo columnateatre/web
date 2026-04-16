@@ -1230,7 +1230,7 @@
       return;
     }
 
-    // 如果是已选中的元素，不显示悬停高亮
+    // Si el elemento ya está seleccionado, no se mostrará el resaltado al pasar el cursor por encima.
     if (target === selectedElement) {
       highlightBox.style.display = "none";
       tagLabel.style.display = "none";
@@ -1241,34 +1241,34 @@
     var text = getElementText(target);
     var attributes = getElementAttributes(target);
 
-    // 更新悬停高亮框位置
+    // Actualizar la posición del marco de resaltado al pasar el cursor
     highlightBox.style.display = "block";
     highlightBox.style.left = "".concat(rect.left - 2, "px");
     highlightBox.style.top = "".concat(rect.top - 2, "px");
     highlightBox.style.width = "".concat(rect.width + 4, "px");
     highlightBox.style.height = "".concat(rect.height + 4, "px");
 
-    // 更新标签位置和内容
+    // Actualizar la posición y el contenido de la etiqueta.
     tagLabel.style.display = "block";
     tagLabel.textContent = "<".concat(target.tagName.toLowerCase(), ">");
 
-    // 计算标签位置，确保不超出视窗
+    // Calcula la posición de la etiqueta para asegurarte de que no exceda el área visible de la pantalla.
     var labelTop = rect.top - 22;
     var labelLeft = rect.left;
 
-    // 如果标签会超出顶部，显示在元素下方
+    // Si la etiqueta se extiende más allá de la parte superior, aparecerá debajo del elemento.
     if (labelTop < 0) {
       labelTop = rect.bottom + 5;
     }
 
-    // 如果标签会超出右侧，向左调整
+    // Si la etiqueta se extiende más allá del lado derecho, ajústela hacia la izquierda.
     if (labelLeft + tagLabel.offsetWidth > window.innerWidth) {
       labelLeft = window.innerWidth - tagLabel.offsetWidth - 5;
     }
     tagLabel.style.left = "".concat(Math.max(0, labelLeft), "px");
     tagLabel.style.top = "".concat(labelTop, "px");
 
-    // 发送消息到父窗口
+    // Enviar mensaje a la ventana principal
     var elementInfo = {
       tagName: target.tagName.toLowerCase(),
       rect: {
@@ -1295,16 +1295,16 @@
         source: "iframe-highlight-injector"
       }, "*");
     } catch (error) {
-      console.warn("无法发送消息到父窗口:", error);
+      console.warn("No se pudo enviar el mensaje a la ventana principal:", error);
     }
   }
 
-  // 鼠标离开事件处理
+  // Manejo de eventos de salida del mouse
   function handleMouseOut(e) {
     if (!highlightEnabled) return;
     var relatedTarget = e.relatedTarget;
 
-    // 如果鼠标移动到高亮相关元素上，不隐藏高亮
+    // Si el cursor del ratón se sitúa sobre el elemento resaltado, este no se ocultará.
     if (relatedTarget && (relatedTarget === highlightBox || relatedTarget === tagLabel || relatedTarget === overlay || relatedTarget === selectedBox || relatedTarget === selectedLabel)) {
       return;
     }
@@ -1317,26 +1317,26 @@
         source: "iframe-highlight-injector"
       }, "*");
     } catch (error) {
-      console.warn("无法发送消息到父窗口:", error);
+      console.warn("No se pudo enviar el mensaje a la ventana principal:", error);
     }
   }
 
-  // 点击事件处理
+  // Manejo de eventos de clic
   function handleClick(e) {
     var target = e.target;
     if (!target || target === overlay || target === highlightBox || target === tagLabel || target === selectedBox || target === selectedLabel) {
       return;
     }
 
-    // 避免处理 html 和 body 元素
+    // Evite manipular los elementos html y body.
     if (target === document.documentElement || target === document.body) {
       return;
     }
 
-    // 检查是否是交互元素，这些元素需要保留默认行为
+    // Comprueba si se trata de un elemento interactivo; estos elementos deben conservar su comportamiento predeterminado.
     var isInteractiveElement = ['input', 'textarea', 'select', 'button', 'a'].includes(target.tagName.toLowerCase());
 
-    // 如果高亮功能启用，对于非交互元素阻止默认行为和事件传播
+    // Si la función de resaltado está habilitada, se impide el comportamiento predeterminado y la propagación de eventos para los elementos no interactivos.
     if (highlightEnabled) {
       e.preventDefault();
       e.stopPropagation();
@@ -1351,10 +1351,10 @@
       rect: rect
     });
 
-    // 立即更新选中高亮
+    // Actualizar los aspectos más destacados seleccionados inmediatamente
     updateSelectedHighlight(target);
 
-    // 隐藏悬停高亮，因为现在是选中状态
+    //Ocultar el resaltado al pasar el cursor porque está seleccionado actualmente.
     highlightBox.style.display = "none";
     tagLabel.style.display = "none";
     var elementInfo = {
@@ -1383,11 +1383,11 @@
         source: "iframe-highlight-injector"
       }, "*");
     } catch (error) {
-      console.warn("无法发送消息到父窗口:", error);
+      console.warn("No se pudo enviar el mensaje a la ventana principal:", error);
     }
   }
 
-  // 监听来自父窗口的消息
+  // Escuchar los mensajes de la ventana principal.
   function handleParentMessage(event) {
     console.log("Received message from parent:", event.data);
     if (event.data.type === "iframe-highlight-toggle") {
@@ -1433,7 +1433,7 @@
     }
   }
 
-  // 启用高亮功能
+  // Habilitar la función de resaltado
   function enableHighlight() {
     console.log("Enabling highlight");
     document.addEventListener("mouseover", handleMouseOver, true);
@@ -1443,18 +1443,18 @@
     overlay.style.display = "block";
   }
 
-  // 禁用高亮功能
+  // Desactivar la función de resaltado
   function disableHighlight() {
     console.log("Disabling highlight");
     highlightEnabled = false;
-    // 保持事件监听器，但通过 highlightEnabled 变量控制行为
-    // 这样可以保留选中状态的显示
+    // Mantén el oyente del evento, pero a través de highlightEnabled Las variables controlan el comportamiento.
+    // Esto conserva el estado seleccionado.
     highlightBox.style.display = "none";
     tagLabel.style.display = "none";
-    // 不隐藏 selectedBox 和 selectedLabel，保留选中状态
+    // No oculto selectedBox y selectedLabel，conserva el estado seleccionado.
   }
 
-  // 完全禁用高亮功能（移除所有监听器）
+  // Deshabilitar completamente el resaltado (eliminar todos los oyentes)
   function fullyDisableHighlight() {
     console.log("Fully disabling highlight");
     highlightEnabled = false;
@@ -1468,11 +1468,11 @@
     selectedLabel.style.display = "none";
   }
 
-  // 添加事件监听
+  // Agregar detector de eventos
   enableHighlight();
   window.addEventListener("message", handleParentMessage);
 
-  // 暴露全局函数供外部调用
+  // Exponer funciones globales para llamadas externas
   window.__iframeHighlightControl = {
     enable: enableHighlight,
     disable: disableHighlight,
@@ -1484,7 +1484,7 @@
       return selectedElement;
     },
     updateSelected: updateSelectedHighlight,
-    // 通过消息发送开关控制
+    //Controlado por un interruptor de envío de mensajes
     sendToggleMessage: function sendToggleMessage(enabled) {
       window.parent.postMessage({
         type: 'iframe-highlight-status',
@@ -1494,7 +1494,7 @@
     }
   };
 
-  // 通知父窗口脚本已加载
+  // Se ha cargado el script de notificación de la ventana principal.
   try {
     window.parent.postMessage({
       type: "iframe-highlight-ready",
@@ -1506,10 +1506,10 @@
       source: "iframe-highlight-injector"
     }, "*");
   } catch (error) {
-    console.warn("无法发送就绪消息到父窗口:", error);
+    console.warn("No se pudo enviar el mensaje de listo a la ventana principal:", error);
   }
 
-  // 清理函数
+  // Función de limpieza
   window.__iframeHighlightCleanup = function () {
     fullyDisableHighlight();
     window.removeEventListener("message", handleParentMessage);
