@@ -166,7 +166,8 @@
         border-radius: 4px; cursor: pointer;
         background: none; border: none; padding: 0;
     }
-    .produccio-item img { width: 100%; height: 160px; object-fit: cover; display: block; transition: transform .4s; }
+    /*.produccio-item img { width: 100%; height: 160px; object-fit: cover; display: block; transition: transform .4s; }*/
+      .produccio-item img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; display: block; transition: transform .4s; }
     .produccio-item:hover img { transform: scale(1.06); }
 
     .produccio-hover {
@@ -191,12 +192,19 @@
     }
     .produccio-modal-overlay.active { opacity: 1; pointer-events: all; }
 
-    .produccio-modal {
+    /* .produccio-modal {
         background: #fff; border-radius: 6px;
         max-width: 780px; width: 100%;
         max-height: 90vh; overflow-y: auto;
         position: relative;
         transform: translateY(20px); transition: transform .3s;
+    }*/
+       .produccio-modal {
+        background: #fff; border-radius: 6px;
+        max-width: 780px; width: 100%;
+        max-height: 90vh; overflow-y: auto;
+        position: relative;
+        transform .3s;
     }
     .produccio-modal-overlay.active .produccio-modal { transform: translateY(0); }
 
@@ -210,8 +218,9 @@
     }
     .produccio-modal-close svg { width: 18px; height: 18px; }
 
-    .produccio-modal-img { width: 100%; height: 340px; object-fit: cover; display: block; border-radius: 6px 6px 0 0; }
-
+/*    .produccio-modal-img { width: 100%; height: 340px; object-fit: cover; display: block; border-radius: 6px 6px 0 0; }
+*/
+    .produccio-modal-img { width: 100%; height: auto; max-height: 55vh; object-fit: contain; display: block; border-radius: 6px 6px 0 0; }
     .produccio-modal-info { padding: 1.5rem 2rem 2rem; }
     .produccio-modal-titol {
         font-family: 'Playfair Display', serif;
@@ -382,13 +391,13 @@
                 <!-- Card 1 -->
                 <article class="novetat-card">
                     <div class="novetat-img-wrap">
-                        <img src="https://placehold.co/600x350/800020/D4AF37?text=Estrena+·+Juny+2025" alt="Estrena Versos Trencats" class="novetat-img">
+                        <img src="imgs/cartell_versos_trencats.jpg" alt="Estrena Versos Trencats" class="novetat-img">
                         <span class="novetat-badge">Estrena</span>
                     </div>
                     <div class="novetat-body">
                         <time class="novetat-date" datetime="2025-06-14">14 de juny de 2025</time>
                         <h3 class="novetat-title">Estrena: Versos Trencats</h3>
-                        <p class="novetat-text">El Grup de Teatre Estable de La Columna presenta la seva nova producció al Teatre Principal de Sitges. Una adaptació contemporània d'un clàssic universal que reflexiona sobre el poder, la veritat i la llibertat.</p>
+                        <p class="novetat-text">El Grup de Teatre Estable de La Columna presenta la seva nova producció al Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Morse, Cernuda, Méndez o Loynaz.</p>
                         <a href="#projectes" class="btn btn-primary">Llegir més</a>
                     </div>
                 </article>
@@ -585,28 +594,28 @@
 
                 <!-- Galeria de produccions passades -->
                 <div class="produccions-galeria">
-                    <h4 class="produccions-title">Produccions passades</h4>
+                    <h4 class="produccions-title">Produccions</h4>
                     <div class="produccions-grid">
 
                         <button class="produccio-item"
-                            data-img="https://placehold.co/900x500/800020/ffffff?text=La+casa+de+Bernarda+Alba"
-                            data-titol="La casa de Bernarda Alba"
-                            data-desc="Adaptació del clàssic de Federico García Lorca. Una obra que explora el conflicte entre la llibertat individual i les convencions socials a través d'un elenc íntegrament femení."
-                            data-data="Novembre 2023"
-                            data-lloc="Teatre Municipal de Sitges">
-                            <img src="https://placehold.co/400x260/800020/ffffff?text=Bernarda+Alba" alt="La casa de Bernarda Alba">
+                            data-img="imgs/cartell_versos_trencats.jpg"
+                            data-titol="Versos Trencats"
+                            data-desc="El Grup de Teatre Estable de La Columna presenta la seva nova producció al Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Morse, Cernuda, Méndez o Loynaz entre d'altres."
+                            data-data="23 d'abril 2026, 20.00 h"
+                            data-lloc="La Canya (La Gralla) Sitges">
+                            <img src="imgs/cartell_versos_trencats.jpg" alt="Versos Trencats">
                             <div class="produccio-hover">
                                 <span>Veure detalls</span>
                             </div>
                         </button>
 
                         <button class="produccio-item"
-                            data-img="https://placehold.co/900x500/2d1515/D4AF37?text=Woyzeck"
-                            data-titol="Woyzeck"
-                            data-desc="Versió lliure del text inacabat de Georg Büchner. Una exploració contemporània de la marginalitat, la pressió social i la salut mental a través del moviment i la imatge escènica."
-                            data-data="Març 2023"
-                            data-lloc="Sala alternativa La Columna, Sitges">
-                            <img src="https://placehold.co/400x260/2d1515/D4AF37?text=Woyzeck" alt="Woyzeck">
+                            data-img="https://placehold.co/900x500/800020/ffffff?text=Delirium"
+                            data-titol="Delirium espectacle"
+                            data-desc="Espectacle col·lectiu, vodevil amb format teatre café que transita a través de personatges com Mónica del Raval, Freddy Mercury, Mephisto... i textos de Sade, Monòlegs de la Vagina, que Yunior Acosta i Victor Marín van donar forma i format per aquest delirant, irreverent i provocador espectacle de dues hores."
+                            data-data="2025"
+                            data-lloc="La Canya (La Gralla) Sitges">
+                            <img src="https://placehold.co/400x260/800020/ffffff?text=Delirium" alt="Delirium espectacle">
                             <div class="produccio-hover">
                                 <span>Veure detalls</span>
                             </div>
@@ -1075,7 +1084,5 @@
         });
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body></html>
 
 </body></html>
