@@ -121,6 +121,7 @@
         transition: transform .25s, box-shadow .25s;
         display: flex; flex-direction: column;
     }
+    .novetat-card.novetat-trigger { cursor: pointer; }
     .novetat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.13); }
 
     .novetat-img-wrap { position: relative; overflow: hidden; }
@@ -273,7 +274,7 @@
                         <a href="#que-fem" class="nav-link dropdown-toggle">Què Fem</a>
                         <ul class="dropdown-menu">
                             <li><a href="#grup-estable">Grup de Teatre Estable</a></li>
-                            <li><a href="#projectes">Projectes Artístics</a></li>
+                            <li><a href="#produccions">Produccions Passades</a></li>
                         </ul>
                     </li>
                     <li><a href="#novetats" class="nav-link">Novetats</a></li>
@@ -314,7 +315,8 @@
                     <h1 class="hero-title">Versos Trencats</h1>
                     <p class="hero-subtitle">Dijous 23 d'abril, 20 h · La Gralla<br>Una producció del Grup de Teatre Estable de La Columna.</p>
                     <div class="hero-ctas">
-                        <a href="#projectes" class="btn btn-primary">Més informació</a>
+                        <a href="#novetats" class="btn btn-primary">Més informació</a>
+                        <a href="https://api.whatsapp.com/send/?phone=34620639960&text=Hola%2C+quiero+reservar+entrada+para+D+versos+trencats&type=phone_number&app_absent=0 target="_blank" class="btn btn-secondary">Reserva</a>
                         <a href="#novetats" class="btn btn-outline">Tots els esdeveniments</a>
                     </div>
                 </div>
@@ -389,22 +391,36 @@
 
             <div class="novetats-grid fade-in">
 
-                <!-- Card 1 -->
-                <article class="novetat-card">
+                <!-- Card 1: Estrena Versos Trencats -->
+                <article class="novetat-card novetat-trigger"
+                    data-img="imgs/cartell_versos_trencats.jpg"
+                    data-titol="Estrena: Versos Trencats"
+                    data-data="23 d'abril de 2026, 20.00 h"
+                    data-lloc="Espai La Canya (La Gralla), Sitges"
+                    data-desc="El Grup de Teatre Estable de La Columna presenta la seva nova producció a l'Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Norse, Cernuda, Méndez o Loynaz, entre d'altres. Un espectacle íntim, poètic i emotiu que convida a deixar-se portar per la paraula."
+                    data-accio-text="AFORO LIMITAT - RESERVA"
+                    data-accio-href="https://api.whatsapp.com/send/?phone=34620639960&text=Hola%2C+quiero+reservar+entrada+para+D+versos+trencats&type=phone_number&app_absent=0">
                     <div class="novetat-img-wrap">
                         <img src="imgs/cartell_versos_trencats.jpg" alt="Estrena Versos Trencats" class="novetat-img">
                         <span class="novetat-badge">Estrena</span>
                     </div>
                     <div class="novetat-body">
-                        <time class="novetat-date" datetime="2025-06-14">14 de juny de 2025</time>
+                        <time class="novetat-date" datetime="2026-04-23">23 d'abril de 2026</time>
                         <h3 class="novetat-title">Estrena: Versos Trencats</h3>
-                        <p class="novetat-text">El Grup de Teatre Estable de La Columna presenta la seva nova producció al Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Norse, Cernuda, Méndez o Loynaz.</p>
-                        <a href="#projectes" class="btn btn-primary">Llegir més</a>
+                        <p class="novetat-text">Especial per Sant Jordi, una teatralització de poemes de Lorca, Marçal, Gil de Biedma, Fuertes, Cernuda i d'altres. A l'Espai La Canya de Sitges.</p>
+                        <button class="btn btn-primary novetat-btn-modal">Llegir més</button>
                     </div>
                 </article>
 
-                <!-- Card 2 -->
-                <article class="novetat-card">
+                <!-- Card 2: Taller d'Estiu -->
+                <article class="novetat-card novetat-trigger"
+                    data-img="https://placehold.co/600x350/2d1515/ffffff?text=Taller+d%27Estiu+2025"
+                    data-titol="Taller de Teatre d'Estiu 2025"
+                    data-data="Juliol 2025"
+                    data-lloc="Sitges"
+                    data-desc="Tres setmanes d'immersió en les arts escèniques per a persones adultes. Tècniques d'interpretació, veu, cos i improvisació en un entorn creatiu i inclusiu. Les places són molt limitades. Si vols participar, contacta'ns a través del formulari per rebre tota la informació sobre horaris, preu i programa."
+                    data-accio-text="Inscripció i informació"
+                    data-accio-href="#contacte">
                     <div class="novetat-img-wrap">
                         <img src="https://placehold.co/600x350/2d1515/ffffff?text=Taller+d%27Estiu+2025" alt="Taller de teatre d'estiu" class="novetat-img">
                         <span class="novetat-badge novetat-badge--blue">Formació</span>
@@ -412,22 +428,29 @@
                     <div class="novetat-body">
                         <time class="novetat-date" datetime="2025-07-01">Juliol 2025</time>
                         <h3 class="novetat-title">Taller de Teatre d'Estiu 2025</h3>
-                        <p class="novetat-text">Tres setmanes d'immersió en les arts escèniques per a persones adultes. Tècniques d'interpretació, veu, cos i improvisació. Places molt limitades — inscripció oberta ara.</p>
-                        <a href="#laboratori" class="btn btn-primary">Llegir més</a>
+                        <p class="novetat-text">Tres setmanes d'immersió en les arts escèniques. Tècniques d'interpretació, veu, cos i improvisació. Places molt limitades.</p>
+                        <button class="btn btn-primary novetat-btn-modal">Llegir més</button>
                     </div>
                 </article>
 
-                <!-- Card 3 -->
-                <article class="novetat-card">
+                <!-- Card 3: Delirium a Barcelona -->
+                <article class="novetat-card novetat-trigger"
+                    data-img="https://placehold.co/600x350/1a1a2d/D4AF37?text=Delirium+a+Barcelona"
+                    data-titol="Pròxima actuació: Delirium a Barcelona"
+                    data-data="Dates de maig per confirmar"
+                    data-lloc="Barcelona (lloc per confirmar)"
+                    data-desc="Delirium, l'espectacle col·lectiu en format vodevil-teatre café de La Columna, arribarà aviat a Barcelona. Un delirant viatge a través de personatges com Mónica del Raval, Freddy Mercury o Mephisto, amb textos de Sade i dels Monòlegs de la Vagina. Irreverent, provocador i ple d'energia. Pendent de confirmar dates i sala. Si vols rebre informació quan es publiqui, escriu-nos."
+                    data-accio-text="Avisa'm quan hi hagi dates"
+                    data-accio-href="#contacte">
                     <div class="novetat-img-wrap">
-                        <img src="https://placehold.co/600x350/1a1a2d/D4AF37?text=Delitium+a+Barcelona" alt="Pròxima actuació Delirium a Barcelona" class="novetat-img">
-                        <span class="novetat-badge novetat-badge--green">Associació</span>
+                        <img src="https://placehold.co/600x350/1a1a2d/D4AF37?text=Delirium+a+Barcelona" alt="Pròxima actuació Delirium a Barcelona" class="novetat-img">
+                        <span class="novetat-badge novetat-badge--green">Espectacle</span>
                     </div>
                     <div class="novetat-body">
-                        <time class="novetat-date" datetime="2025-06-03">Dates per confirmar</time>
-                        <h3 class="novetat-title">Pròxima actuació Delirium a Barcelona</h3>
-                        <p class="novetat-text">Pròxima actuació Delirium a Barcelona, dates de maig per confirmar.</p>
-                        <a href="#collabora" class="btn btn-primary">Llegir més</a>
+                        <time class="novetat-date" datetime="2025-05-01">Dates per confirmar</time>
+                        <h3 class="novetat-title">Pròxima actuació: Delirium a Barcelona</h3>
+                        <p class="novetat-text">Delirium porta el seu vodevil irreverent i provocador a Barcelona. Dates de maig per confirmar.</p>
+                        <button class="btn btn-primary novetat-btn-modal">Llegir més</button>
                     </div>
                 </article>
 
@@ -575,51 +598,32 @@
                 </div>
             </article>
 
-            <!-- Projectes Artístics -->
-            <article class="activity-card fade-in" id="projectes">
+            <!-- Produccions Passades -->
+            <article class="activity-card fade-in" id="produccions">
                 <div class="activity-content">
                     <div class="activity-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                         </svg>
                     </div>
-                    <h3 class="activity-title">Projectes Artístics</h3>
-                    <p class="activity-description">Producció d'obres culturals i audiovisuals, així com l'organització de mostres i festivals vinculats al territori. Cada projecte neix del diàleg entre l'art i la societat, buscant sempre connectar amb les inquietuds del nostre temps.</p>
-                    <ul class="activity-features">
-                        <li>Produccions teatrals originals</li>
-                        <li>Col·laboracions amb artistes locals</li>
-                        <li>Creacions audiovisuals</li>
-                        <li>Esdeveniments culturals al territori</li>
-                    </ul>
+                    <h3 class="activity-title">Produccions Passades</h3>
+                    <p class="activity-description">El rastre del que hem creat. Aquí trobaràs les produccions que La Columna ha portat a escena des de la seva fundació: obres originals, adaptacions i col·laboracions que han deixat petjada en el territori.</p>
                 </div>
 
                 <!-- Galeria de produccions passades -->
                 <div class="produccions-galeria">
-                    <h4 class="produccions-title">Produccions</h4>
                     <div class="produccions-grid">
 
                         <button class="produccio-item"
-                            data-img="imgs/cartell_versos_trencats.jpg"
-                            data-titol="Versos Trencats"
-                            data-desc="El Grup de Teatre Estable de La Columna presenta la seva nova producció al Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Morse, Cernuda, Méndez o Loynaz entre d'altres."
-                            data-data="23 d'abril 2026, 20.00 h"
-                            data-lloc="La Canya (La Gralla) Sitges">
-                            <img src="imgs/cartell_versos_trencats.jpg" alt="Versos Trencats">
-                            <div class="produccio-hover">
-                                <span>Veure detalls</span>
-                            </div>
-                        </button>
-
-                        <button class="produccio-item"
                             data-img="https://placehold.co/900x500/800020/ffffff?text=Delirium"
-                            data-titol="Delirium espectacle"
+                            data-titol="Delirium"
                             data-desc="Espectacle col·lectiu, vodevil amb format teatre café que transita a través de personatges com Mónica del Raval, Freddy Mercury, Mephisto... i textos de Sade, Monòlegs de la Vagina, que Yunior Acosta i Victor Marín van donar forma i format per aquest delirant, irreverent i provocador espectacle de dues hores."
                             data-data="2025"
-                            data-lloc="La Canya (La Gralla) Sitges">
-                            <img src="https://placehold.co/400x260/800020/ffffff?text=Delirium" alt="Delirium espectacle">
-                            <div class="produccio-hover">
-                                <span>Veure detalls</span>
-                            </div>
+                            data-lloc="La Canya (La Gralla), Sitges"
+                            data-accio-text=""
+                            data-accio-href="">
+                            <img src="https://placehold.co/400x260/800020/ffffff?text=Delirium" alt="Delirium">
+                            <div class="produccio-hover"><span>Veure detalls</span></div>
                         </button>
 
                         <button class="produccio-item"
@@ -627,11 +631,11 @@
                             data-titol="El jardí dels cirerers"
                             data-desc="Txèkhov adaptat al litoral mediterrani. El declivi d'una família i d'un món que ja no té lloc en el futur. Un treball de conjunt que va guanyar el premi del públic a la Mostra de Teatre Aficionat del Garraf 2022."
                             data-data="Octubre 2022"
-                            data-lloc="Teatre Principal de Sitges">
+                            data-lloc="Teatre Principal de Sitges"
+                            data-accio-text=""
+                            data-accio-href="">
                             <img src="https://placehold.co/400x260/1a2d1a/ffffff?text=El+jardí+dels+cirerers" alt="El jardí dels cirerers">
-                            <div class="produccio-hover">
-                                <span>Veure detalls</span>
-                            </div>
+                            <div class="produccio-hover"><span>Veure detalls</span></div>
                         </button>
 
                         <button class="produccio-item"
@@ -639,11 +643,11 @@
                             data-titol="Marat/Sade"
                             data-desc="Peter Weiss en la nostra versió de cambra. Un espectacle de fort contingut polític i formal que va recórrer diversos municipis del Garraf dins el programa de cultura de proximitat."
                             data-data="Maig 2022"
-                            data-lloc="Diversos municipis del Garraf">
+                            data-lloc="Diversos municipis del Garraf"
+                            data-accio-text=""
+                            data-accio-href="">
                             <img src="https://placehold.co/400x260/0a1a2d/D4AF37?text=Marat%2FSade" alt="Marat/Sade">
-                            <div class="produccio-hover">
-                                <span>Veure detalls</span>
-                            </div>
+                            <div class="produccio-hover"><span>Veure detalls</span></div>
                         </button>
 
                     </div><!-- /produccions-grid -->
@@ -931,8 +935,8 @@
     <!-- Google Translate -->
     <div id="google_translate_element" style="display: none;"></div>
 
-    <!-- Modal produccions -->
-    <div class="produccio-modal-overlay" id="produccioModal" role="dialog" aria-modal="true" aria-label="Detalls de la producció">
+    <!-- Modal unificada (Novetats + Produccions) -->
+    <div class="produccio-modal-overlay" id="produccioModal" role="dialog" aria-modal="true" aria-label="Detalls">
         <div class="produccio-modal">
             <button class="produccio-modal-close" id="modalClose" aria-label="Tancar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -945,6 +949,7 @@
                     <span id="modalData" class="produccio-modal-data"></span>
                     <span id="modalLloc" class="produccio-modal-lloc"></span>
                 </div>
+                <a id="modalAccio" href="" class="btn btn-primary" style="display:none; margin-top:1.2rem;">Més informació</a>
             </div>
         </div>
     </div>
@@ -993,23 +998,36 @@
         startTimer();
     })();
 
-    // ── MODAL PRODUCCIONS ──────────────────────────────────────────
+    // ── MODAL UNIFICADA (Novetats + Produccions) ───────────────────
     (function() {
-        const overlay   = document.getElementById('produccioModal');
-        const btnClose  = document.getElementById('modalClose');
-        const imgEl     = document.getElementById('modalImg');
-        const titolEl   = document.getElementById('modalTitol');
-        const descEl    = document.getElementById('modalDesc');
-        const dataEl    = document.getElementById('modalData');
-        const llocEl    = document.getElementById('modalLloc');
+        const overlay  = document.getElementById('produccioModal');
+        const btnClose = document.getElementById('modalClose');
+        const imgEl    = document.getElementById('modalImg');
+        const titolEl  = document.getElementById('modalTitol');
+        const descEl   = document.getElementById('modalDesc');
+        const dataEl   = document.getElementById('modalData');
+        const llocEl   = document.getElementById('modalLloc');
+        const accioEl  = document.getElementById('modalAccio');
 
-        function openModal(btn) {
-            imgEl.src        = btn.dataset.img;
-            imgEl.alt        = btn.dataset.titol;
-            titolEl.textContent = btn.dataset.titol;
-            descEl.textContent  = btn.dataset.desc;
-            dataEl.textContent  = btn.dataset.data;
-            llocEl.textContent  = btn.dataset.lloc;
+        function openModal(el) {
+            imgEl.src            = el.dataset.img;
+            imgEl.alt            = el.dataset.titol;
+            titolEl.textContent  = el.dataset.titol;
+            descEl.textContent   = el.dataset.desc;
+            dataEl.textContent   = el.dataset.data   || '';
+            llocEl.textContent   = el.dataset.lloc   || '';
+
+            // Botó d'acció opcional
+            const accioText = el.dataset.accioText;
+            const accioHref = el.dataset.accioHref;
+            if (accioText && accioHref) {
+                accioEl.textContent = accioText;
+                accioEl.href        = accioHref;
+                accioEl.style.display = 'inline-block';
+            } else {
+                accioEl.style.display = 'none';
+            }
+
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1019,16 +1037,38 @@
             document.body.style.overflow = '';
         }
 
+        // Cards de Novetats (click anywhere on the article)
+        document.querySelectorAll('.novetat-trigger').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+                // Prevent if clicking the action button inside the modal trigger (btn inside card)
+                if (e.target.closest('.novetat-btn-modal') || e.target.tagName === 'A') return;
+                openModal(this);
+            });
+            // Also wire the explicit button
+            const btn = card.querySelector('.novetat-btn-modal');
+            if (btn) btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                openModal(card);
+            });
+        });
+
+        // Galeria Produccions Passades
         document.querySelectorAll('.produccio-item').forEach(function(btn) {
             btn.addEventListener('click', function() { openModal(this); });
         });
 
+        // Tanca modal: botó ✕, clic fora, Escape
         btnClose.addEventListener('click', closeModal);
         overlay.addEventListener('click', function(e) {
             if (e.target === overlay) closeModal();
         });
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
+        });
+
+        // Si el botó d'acció és un anchor intern, tancar la modal i navegar
+        accioEl.addEventListener('click', function() {
+            closeModal();
         });
     })();
     </script>
