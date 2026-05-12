@@ -27,7 +27,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Formulari Web La Columna <hola@lacolumnateatre.org>',
+        from: 'Formulari Web La Columna Teatre <hola@lacolumnateatre.org>',
         to: ['hola@lacolumnateatre.org'],
         reply_to: email,
         subject: `[WEB] ${subjectText} - de ${name}`,
