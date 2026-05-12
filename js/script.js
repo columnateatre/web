@@ -114,80 +114,61 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Contact Form Handling
     // ============================================
-    const contactForm = document.getElementById('contactForm');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+const contactForm = document.getElementById('contactForm');
 
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        // Validació visual
+        let isValid = true;
+        const requiredFields = ['name', 'email', 'subject', 'message'];
 
-            // Basic validation
-            let isValid = true;
-            const requiredFields = ['name', 'email', 'subject', 'message'];
-
-            requiredFields.forEach(field => {
-                const input = this.querySelector(`[name="${field}"]`);
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#e74c3c';
-                } else {
-                    input.style.borderColor = 'transparent';
-                }
-            });
-
-            // Email validation
-            const emailInput = this.querySelector('[name="email"]');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
+        requiredFields.forEach(field => {
+            const input = this.querySelector(`[name="${field}"]`);
+            if (!input.value.trim()) {
                 isValid = false;
-                emailInput.style.borderColor = '#e74c3c';
-            }
-
-            if (isValid) {
-                // Show success message
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-
-                submitBtn.textContent = 'Enviant...';
-                submitBtn.disabled = true;
-
-                // Simulate form submission
-                setTimeout(() => {
-                    // Create success message
-                    const successMsg = document.createElement('div');
-                    successMsg.className = 'form-success';
-                    successMsg.innerHTML = `
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 50px; height: 50px; color: #27ae60; margin-bottom: 1rem;">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                        <h3 style="color: #800020; margin-bottom: 0.5rem;">Gràcies pel teu missatge!</h3>
-                        <p style="color: #666;">Et respondrem el més aviat possible.</p>
-                    `;
-                    successMsg.style.cssText = `
-                        text-align: center;
-                        padding: 2rem;
-                        animation: fadeIn 0.5s ease;
-                    `;
-
-                    // Replace form with success message
-                    contactForm.innerHTML = '';
-                    contactForm.appendChild(successMsg);
-                }, 1500);
+                input.style.borderColor = '#e74c3c';
+            } else {
+                input.style.borderColor = 'transparent';
             }
         });
 
-        // Clear error styling on input
-        contactForm.querySelectorAll('input, select, textarea').forEach(input => {
-            input.addEventListener('input', function() {
-                this.style.borderColor = 'transparent';
-            });
+        const emailInput = this.querySelector('[name="email"]');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            isValid = false;
+            emailInput.style.borderColor = '#e74c3c';
+        }
+
+        if (!isValid) {
+            e.preventDefault(); // Només cancel·la si hi ha errors
+        }
+        // Si isValid === true, el formulari s'envia normalment al servidor
+    });
+
+    contactForm.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('input', function() {
+            this.style.borderColor = 'transparent';
         });
+    });
+
+    // Mostra missatge d'èxit si véns de l'enviament
+    if (new URLSearchParams(window.location.search).get('success') === 'true') {
+        const container = document.querySelector('.contact-form-container');
+        if (container) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:2rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:50px;height:50px;color:#27ae60;margin-bottom:1rem;">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <h3 style="color:#800020;margin-bottom:0.5rem;">Gràcies pel teu missatge!</h3>
+                    <p style="color:#666;">Et respondrem el més aviat possible.</p>
+                </div>`;
+        }
     }
-
+}
+    
     // ============================================
     // Active Navigation Link Highlighting
     // ============================================
