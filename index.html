@@ -6,7 +6,7 @@
     <meta name="description" content="Associació Teatral La Columna de Sitges - Organització plural, horitzontal i diversa dedicada a les arts escèniques">
     <meta name="keywords" content="teatre, Sitges, arts escèniques, formació actoral, cultura, laboratori teatral">
     <title>Associació Teatral La Columna | Sitges</title>
-<link rel="icon" type="image/png" href="imgs/simbolo_lacolumna.png"><link rel="apple-touch-icon" href="imgs/simbolo_lacolumna.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
         opacity: 0; transition: opacity 0.8s ease;
         display: flex; align-items: center; justify-content: center;
     }
-    .hero-.active { opacity: 1; z-index: 1; }
+    .hero-slide.active { opacity: 1; z-index: 1; }
 
     .hero-overlay {
         position: absolute; inset: 0;
@@ -313,16 +313,42 @@
                 <div class="hero-content">
                     <span class="hero-event-tag">Estrena</span>
                     <h1 class="hero-title">Versos Trencats</h1>
-                    <p class="hero-subtitle">Divendres 12 de juny, 16 h · La Gralla<br>Una producció del Grup de Teatre Estable de La Columna.</p>
+                    <p class="hero-subtitle">Divendres 12 de junyl, 18 h · La Gralla<br>Una producció del Grup de Teatre Estable de La Columna.</p>
                     <div class="hero-ctas">
                         <a href="#novetats" class="btn btn-primary">Més informació</a>
-                        <a href="https://api.whatsapp.com/send/?phone=34620639960&text=Hola%2C+quiero+reservar+entrada+para+D+versos+trencats&type=phone_number&app_absent=0" class="btn btn-secondary">Reserva</a>
+                        <a href="https://api.whatsapp.com/send/?phone=34620639960&text=Hola%2C+quiero+reservar+entrada+para+D+versos+trencats&type=phone_number&app_absent=0" target="_blank" class="btn btn-secondary">Reserva</a>
                         <a href="#novetats" class="btn btn-outline">Tots els esdeveniments</a>
                     </div>
                 </div>
             </div>
 
-
+            <!-- Slide 4: Seguim -->
+            <div class="hero-slide" style="background-image: url('https://placehold.co/1600x800/1a1a0a/D4AF37?text=Pròxima+actuació+DELIRIUM');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-event-tag">Pròxima actuació</span>
+                    <h1 class="hero-title">Delirium espectacle</h1>
+                    <p class="hero-subtitle">Confirmació dates<br>Actuacions a Barcelona.</p>
+                    <div class="hero-ctas">
+                        <a href="#collabora" class="btn btn-primary">Més detalls</a>
+                        <a href="#contacte" class="btn btn-outline">Reserva</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Taller d'estiu -->
+            <div class="hero-slide" style="background-image: url('https://placehold.co/1600x800/0a1a2d/D4AF37?text=Taller+de+Teatre+·+Estiu+2025');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-event-tag">Formació</span>
+                    <h1 class="hero-title">Taller de Teatre d'Estiu</h1>
+                    <p class="hero-subtitle">Juliol 2025 · Places limitades<br>Obre't a l'expressió escènica en un entorn creatiu i inclusiu.</p>
+                    <div class="hero-ctas">
+                        <a href="#laboratori" class="btn btn-primary">Apunta't ara</a>
+                        <a href="#contacte" class="btn btn-outline">Consulta disponibilitat</a>
+                    </div>
+                </div>
+            </div>
 
 
         </div><!-- /hero-carousel -->
@@ -367,21 +393,21 @@
 
                 <!-- Card 1: Estrena Versos Trencats -->
                 <article class="novetat-card novetat-trigger"
-                    data-img="imgs/Versos_Trencats_juny.jpg"
+                    data-img="imgs/cartell_versos_trencats.jpg"
                     data-titol="Estrena: Versos Trencats"
                     data-data="12 de juny de 2026, 18.00 h"
                     data-lloc="Espai La Canya (La Gralla), Sitges"
-                    data-desc="Dins del marc de l'Orgull Sitges, el Grup de Teatre Estable de La Columna presenta la seva nova producció a l'Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Norse, Cernuda, Méndez o Loynaz, entre d'altres. Un espectacle íntim, poètic i emotiu que convida a deixar-se portar per la paraula. Amb el suport de l'Ajuntament de Sitges."
+                    data-desc="En el marc de l'Orgull Sitges, el Grup de Teatre Estable de La Columna presenta la seva nova producció a l'Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Norse, Cernuda, Méndez o Loynaz, entre d'altres. Un espectacle íntim, poètic i emotiu que convida a deixar-se portar per la paraula. Amb el suport de l'Ajuntament de Sitges."
                     data-accio-text="AFORO LIMITAT - RESERVA"
                     data-accio-href="https://api.whatsapp.com/send/?phone=34620639960&text=Hola%2C+quiero+reservar+entrada+para+D+versos+trencats&type=phone_number&app_absent=0">
                     <div class="novetat-img-wrap">
-                        <img src="imgs/Versos_Trencats_juny.jpg" alt="Estrena Versos Trencats" class="novetat-img">
+                        <img src="imgs/cartell_versos_trencats.jpg" alt="Estrena Versos Trencats" class="novetat-img">
                         <span class="novetat-badge">Estrena</span>
                     </div>
                     <div class="novetat-body">
                         <time class="novetat-date" datetime="2026-04-23">12 de juny de 2026</time>
                         <h3 class="novetat-title">Estrena: Versos Trencats</h3>
-                        <p class="novetat-text">Especial per Sant Jordi, una teatralització de poemes de Lorca, Marçal, Gil de Biedma, Fuertes, Cernuda i d'altres. A l'Espai La Canya de Sitges.</p>
+                        <p class="novetat-text">Especial Orgull Sitges, una teatralització de poemes de Lorca, Marçal, Gil de Biedma, Fuertes, Cernuda i d'altres. A l'Espai La Canya de Sitges.</p>
                         <button class="btn btn-primary novetat-btn-modal">Llegir més</button>
                     </div>
                 </article>
@@ -407,9 +433,9 @@
                     </div>
                 </article>
 
-                <!-- Card 3: Delirium a Barcelona --> 
+                <!-- Card 3: Delirium a Barcelona -->
                 <article class="novetat-card novetat-trigger"
-                    data-img="https://colorssitgeslink.org/wp-content/uploads/2025/12/eix-lespectacle-delirium-164300.jpg"
+                    data-img="https://placehold.co/600x350/1a1a2d/D4AF37?text=Delirium+a+Barcelona"
                     data-titol="Pròxima actuació: Delirium a Barcelona"
                     data-data="Dates de maig per confirmar"
                     data-lloc="Barcelona (lloc per confirmar)"
@@ -417,7 +443,7 @@
                     data-accio-text="Avisa'm quan hi hagi dates"
                     data-accio-href="#contacte">
                     <div class="novetat-img-wrap">
-                        <img src="https://colorssitgeslink.org/wp-content/uploads/2025/12/eix-lespectacle-delirium-164300.jpg" alt="Pròxima actuació Delirium a Barcelona" class="novetat-img">
+                        <img src="https://placehold.co/600x350/1a1a2d/D4AF37?text=Delirium+a+Barcelona" alt="Pròxima actuació Delirium a Barcelona" class="novetat-img">
                         <span class="novetat-badge novetat-badge--green">Espectacle</span>
                     </div>
                     <div class="novetat-body">
@@ -427,6 +453,7 @@
                         <button class="btn btn-primary novetat-btn-modal">Llegir més</button>
                     </div>
                 </article>
+
             </div><!-- /novetats-grid -->
         </div>
     </section>
@@ -524,7 +551,7 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                                 <polyline points="10 9 9 9 8 9"/>
                             </svg>
-                            <span><a href="estatuts_columnateatre.pdf" alt="estatuts La Columna Teatre" title="estatuts La Columna Teatre" target="_blank">Estatuts La Columna</a></span>
+                            <span><a href="estatuts_columnateatre.pdf" alt="estatuts La Columna Teatre" title="estatuts La Columna Teatre" target="_blank">Entitat Transparent</a></span>
                         </div>
                     </div>
                     <div class="content-text">
@@ -532,7 +559,7 @@
                         <p>Som una entitat sense ànim de lucre compromesa amb la gestió ètica i transparent.</p>
                         <p></p>
                         <ul class="feature-list">
-                            <li>Número d'inscripció al registre: 79366</li>
+                            <li>Comptes anualment</li>
                             <li>Assemblees obertes i participatives</li>
                             <li>Memòria d'activitats pública</li>
                         </ul>
@@ -585,30 +612,31 @@
 
                 <!-- Galeria de produccions passades -->
                 <div class="produccions-galeria">
+                    <h4 class="produccions-title">Produccions</h4>
                     <div class="produccions-grid">
 
                         <button class="produccio-item"
                             data-img="imgs/cartell_versos_trencats.jpg"
                             data-titol="Versos Trencats"
-                            data-desc="Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Norse, Cernuda, Méndez o Loynaz, entre d'altres. Un espectacle íntim, poètic i emotiu que convida a deixar-se portar per la paraula."
-                            data-data="23 d'abril de 2026"
-                            data-lloc="La Canya (La Gralla), Sitges"
-                            data-accio-text=""
-                            data-accio-href="">
+                            data-desc="El Grup de Teatre Estable de La Columna presenta la seva nova producció al Espai La Canya (pis d'abaix de la Vermuteria La Canya). Especial per Sant Jordi, una teatralització de poemes seleccionats per aquesta diada d'autores i autors universals com Lorca, Marçal, Gil de Biedma, Fuertes, Morse, Cernuda, Méndez o Loynaz entre d'altres."
+                            data-data="23 d'abril 2026, 20.00 h"
+                            data-lloc="La Canya (La Gralla) Sitges">
                             <img src="imgs/cartell_versos_trencats.jpg" alt="Versos Trencats">
-                            <div class="produccio-hover"><span>Veure detalls</span></div>
+                            <div class="produccio-hover">
+                                <span>Veure detalls</span>
+                            </div>
                         </button>
 
                         <button class="produccio-item"
-                            data-img="https://colorssitgeslink.org/wp-content/uploads/2025/12/eix-lespectacle-delirium-164300.jpg"
-                            data-titol="Delirium"
+                            data-img="https://placehold.co/900x500/800020/ffffff?text=Delirium"
+                            data-titol="Delirium espectacle"
                             data-desc="Espectacle col·lectiu, vodevil amb format teatre café que transita a través de personatges com Mónica del Raval, Freddy Mercury, Mephisto... i textos de Sade, Monòlegs de la Vagina, que Yunior Acosta i Victor Marín van donar forma i format per aquest delirant, irreverent i provocador espectacle de dues hores."
                             data-data="2025"
-                            data-lloc="La Canya (La Gralla), Sitges"
-                            data-accio-text=""
-                            data-accio-href="">
-                            <img src="https://colorssitgeslink.org/wp-content/uploads/2025/12/eix-lespectacle-delirium-164300.jpg" alt="Delirium">
-                            <div class="produccio-hover"><span>Veure detalls</span></div>
+                            data-lloc="La Canya (La Gralla) Sitges">
+                            <img src="https://placehold.co/400x260/800020/ffffff?text=Delirium" alt="Delirium espectacle">
+                            <div class="produccio-hover">
+                                <span>Veure detalls</span>
+                            </div>
                         </button>
 
                         <button class="produccio-item"
@@ -616,11 +644,11 @@
                             data-titol="El jardí dels cirerers"
                             data-desc="Txèkhov adaptat al litoral mediterrani. El declivi d'una família i d'un món que ja no té lloc en el futur. Un treball de conjunt que va guanyar el premi del públic a la Mostra de Teatre Aficionat del Garraf 2022."
                             data-data="Octubre 2022"
-                            data-lloc="Teatre Principal de Sitges"
-                            data-accio-text=""
-                            data-accio-href="">
+                            data-lloc="Teatre Principal de Sitges">
                             <img src="https://placehold.co/400x260/1a2d1a/ffffff?text=El+jardí+dels+cirerers" alt="El jardí dels cirerers">
-                            <div class="produccio-hover"><span>Veure detalls</span></div>
+                            <div class="produccio-hover">
+                                <span>Veure detalls</span>
+                            </div>
                         </button>
 
                         <button class="produccio-item"
@@ -628,11 +656,11 @@
                             data-titol="Marat/Sade"
                             data-desc="Peter Weiss en la nostra versió de cambra. Un espectacle de fort contingut polític i formal que va recórrer diversos municipis del Garraf dins el programa de cultura de proximitat."
                             data-data="Maig 2022"
-                            data-lloc="Diversos municipis del Garraf"
-                            data-accio-text=""
-                            data-accio-href="">
+                            data-lloc="Diversos municipis del Garraf">
                             <img src="https://placehold.co/400x260/0a1a2d/D4AF37?text=Marat%2FSade" alt="Marat/Sade">
-                            <div class="produccio-hover"><span>Veure detalls</span></div>
+                            <div class="produccio-hover">
+                                <span>Veure detalls</span>
+                            </div>
                         </button>
 
                     </div><!-- /produccions-grid -->
@@ -792,11 +820,10 @@
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                                 </svg>
                             </a>
-                            <a href="https://www.tiktok.com/lacolumnateatre" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Tiktok">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                            <a href="https://www.facebook.com/lacolumnateatre" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                                 </svg>
-
                             </a>
                             <a href="https://www.youtube.com/@LaColumnaTeatre" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -876,10 +903,10 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                             </svg>
                         </a>
-                            <a href="https://www.tiktok.com/lacolumnateatre" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Tiktok">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                                </svg>
+                        <a href="https://www.facebook.com/lacolumnateatre" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
                         </a>
                         <a href="https://www.youtube.com/@LaColumnaTeatre" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1113,3 +1140,4 @@
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body></html>
+
