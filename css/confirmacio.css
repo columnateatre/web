@@ -1,0 +1,310 @@
+.confirmation-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 12% 15%, rgba(212, 175, 55, 0.12), transparent 30%),
+        linear-gradient(145deg, #f9f7f2 0%, #f0ece3 100%);
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 20;
+    padding: 0.65rem 1rem;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border-radius: var(--border-radius);
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.confirmation-header {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 2rem 1rem;
+}
+
+.confirmation-logo {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+}
+
+.confirmation-main {
+    width: 100%;
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 1rem 2rem 3rem;
+}
+
+.confirmation-card {
+    position: relative;
+    width: min(100%, 960px);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    overflow: hidden;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: cardEntrance 0.55s ease-out both;
+}
+
+.confirmation-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 2;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+@keyframes cardEntrance {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.confirmation-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    color: var(--color-white);
+    background:
+        linear-gradient(145deg, rgba(90, 0, 22, 0.96), rgba(128, 0, 32, 0.93)),
+        url("../imgs/simbolo_lacolumna.png") center / 72% no-repeat;
+}
+
+.confirmation-intro .eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--color-accent-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.confirmation-intro h1 {
+    max-width: 10ch;
+    margin-bottom: 1.75rem;
+    color: var(--color-white);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+
+.invitation-date {
+    display: inline-flex;
+    align-self: flex-start;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.85rem 1.2rem;
+    color: var(--color-black);
+    background: var(--color-accent);
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.date-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.invitation-date strong {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    line-height: 1.1;
+}
+
+.intro-copy {
+    max-width: 38ch;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.day-note {
+    max-width: 38ch;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.86rem;
+}
+
+.confirmation-form-wrap {
+    display: grid;
+    align-content: center;
+    min-height: 570px;
+    padding: clamp(2rem, 5vw, 4rem);
+}
+
+.confirmation-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.confirmation-form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.confirmation-form input {
+    width: 100%;
+    min-height: 50px;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-background);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.confirmation-form input:focus {
+    outline: none;
+    background: var(--color-white);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
+}
+
+.confirmation-form input[aria-invalid="true"] {
+    border-color: #b42318;
+}
+
+.field-error {
+    display: block;
+    min-height: 1.15rem;
+    margin-top: 0.25rem;
+    color: #b42318;
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.confirmation-form button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+}
+
+.form-message {
+    min-height: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #b42318;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.privacy-note {
+    margin-top: 0.9rem;
+    color: var(--color-text-light);
+    font-size: 0.76rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    white-space: nowrap !important;
+}
+
+.confirmation-success,
+.invalid-invitation {
+    text-align: center;
+}
+
+.confirmation-success h2,
+.invalid-invitation h2 {
+    margin-bottom: 0.75rem;
+}
+
+.success-icon {
+    display: grid;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 1.5rem;
+    place-items: center;
+    color: var(--color-primary);
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+}
+
+.success-icon svg {
+    width: 42px;
+    height: 42px;
+}
+
+.success-small {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.invalid-invitation a {
+    font-weight: 700;
+}
+
+.confirmation-footer {
+    padding: 1rem 2rem 1.5rem;
+    color: var(--color-text-light);
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+.confirmation-footer p {
+    margin-bottom: 0.1rem;
+}
+
+@media (max-width: 760px) {
+    .confirmation-header {
+        padding-top: 1rem;
+    }
+
+    .confirmation-logo {
+        width: 66px;
+        height: 66px;
+    }
+
+    .confirmation-main {
+        display: block;
+        padding: 0.5rem 1rem 2rem;
+    }
+
+    .confirmation-card {
+        grid-template-columns: 1fr;
+    }
+
+    .confirmation-intro {
+        padding: 2rem 1.5rem;
+    }
+
+    .confirmation-intro h1 {
+        max-width: none;
+        margin-bottom: 1.25rem;
+    }
+
+    .intro-copy {
+        margin-bottom: 0.65rem;
+    }
+
+    .confirmation-form-wrap {
+        min-height: 0;
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confirmation-card {
+        animation: none;
+    }
+}
