@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Confirmació d'assistència a un esdeveniment de l'Associació Teatral La Columna.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Confirmació d'assistència | La Columna</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/confirmacio.css">
+</head>
+<body class="confirmation-page">
+    <a class="skip-link" href="#confirmacio">Ves al formulari</a>
+
+    <header class="confirmation-header">
+        <a href="index.html" aria-label="Tornar a l'inici de La Columna">
+            <img src="imgs/logotipo_lacolumna.png" alt="Associació Teatral La Columna" class="confirmation-logo">
+        </a>
+    </header>
+
+    <main id="confirmacio" class="confirmation-main">
+        <section class="confirmation-card" aria-labelledby="page-title">
+            <div class="confirmation-intro">
+                <p class="eyebrow">Invitació personal</p>
+                <h1 id="page-title">Confirmació d'assistència</h1>
+
+                <div class="invitation-date" id="invitationDate" aria-live="polite">
+                    <span class="date-label">La teva invitació és per al</span>
+                    <strong><span class="date-prefix">dia</span> <span id="eventDay">—</span></strong>
+                </div>
+
+                <p class="intro-copy" id="introCopy">
+                    Ens farà molta il·lusió comptar amb tu. Confirma que hi assistiràs deixant-nos les teves dades.
+                </p>
+                <p class="day-note">El dia ja està assignat a la invitació i no cal escollir-lo.</p>
+            </div>
+
+            <div class="confirmation-form-wrap">
+                <form class="confirmation-form" id="confirmationForm" action="/confirmacio-submit" method="POST" novalidate>
+                    <input type="hidden" id="dia" name="dia" value="">
+
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" autocomplete="name" maxlength="120" required>
+                        <span class="field-error" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correu electrònic</label>
+                        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="160" required>
+                        <span class="field-error" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telèfon</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="30" required>
+                        <span class="field-error" id="phoneError"></span>
+                    </div>
+
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">No omplis aquest camp</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="submitButton">
+                        Confirmo la meva assistència
+                    </button>
+
+                    <p class="privacy-note">
+                        Utilitzarem aquestes dades únicament per gestionar l'assistència a l'esdeveniment.
+                    </p>
+                </form>
+
+                <div class="confirmation-success" id="confirmationSuccess" hidden tabindex="-1">
+                    <span class="success-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </span>
+                    <h2>Assistència confirmada</h2>
+                    <p>Gràcies! Hem rebut la teva confirmació per al dia <strong id="successDay"></strong>.</p>
+                    <p class="success-small">No cal que facis res més.</p>
+                </div>
+
+                <div class="invalid-invitation" id="invalidInvitation" hidden>
+                    <h2>Aquest enllaç no és vàlid</h2>
+                    <p>Obre de nou l'enllaç o escaneja el QR de la teva invitació.</p>
+                    <p>Si el problema continua, escriu-nos a <a href="mailto:hola@lacolumnateatre.org">hola@lacolumnateatre.org</a>.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="confirmation-footer">
+        <p>Associació Teatral La Columna · Sitges</p>
+        <a href="mailto:hola@lacolumnateatre.org">hola@lacolumnateatre.org</a>
+    </footer>
+
+    <script src="js/confirmacio.js" defer></script>
+</body>
+</html>
