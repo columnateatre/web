@@ -31,6 +31,7 @@
                 <div class="invitation-date" id="invitationDate" aria-live="polite">
                     <span class="date-label">La teva invitació és per al</span>
                     <strong><span class="date-prefix">dia</span> <span id="eventDay">—</span></strong>
+                    <span class="event-time">Inici de l'obra · 20.00 h</span>
                 </div>
 
                 <p class="intro-copy" id="introCopy">
@@ -40,8 +41,10 @@
             </div>
 
             <div class="confirmation-form-wrap">
-                <form class="confirmation-form" id="confirmationForm" action="/confirmacio-submit" method="POST" novalidate>
+                <form class="confirmation-form" id="confirmationForm" action="/submit" method="POST" novalidate>
                     <input type="hidden" id="dia" name="dia" value="">
+                    <input type="hidden" name="subject" value="assistencia">
+                    <input type="hidden" id="message" name="message" value="">
 
                     <div class="form-group">
                         <label for="name">Nom complet</label>
@@ -103,6 +106,128 @@
         <a href="mailto:hola@lacolumnateatre.org">hola@lacolumnateatre.org</a>
     </footer>
 
-    <script src="js/confirmacio.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const allowedDays = new Set(['25', '26']);
+            const params = new URLSearchParams(window.location.search);
+            const day = params.get('dia');
+
+            const form = document.getElementById('confirmationForm');
+            const submitButton = document.getElementById('submitButton');
+            const formMessage = document.getElementById('formMessage');
+            const success = document.getElementById('confirmationSuccess');
+            const invalidInvitation = document.getElementById('invalidInvitation');
+            const dateBox = document.getElementById('invitationDate');
+
+            if (!allowedDays.has(day)) {
+                form.hidden = true;
+                dateBox.hidden = true;
+                document.getElementById('introCopy').hidden = true;
+                document.querySelector('.day-note').hidden = true;
+                invalidInvitation.hidden = false;
+                return;
+            }
+
+            document.getElementById('eventDay').textContent = day;
+            document.getElementById('dia').value = day;
+            document.getElementById('successDay').textContent = day;
+            updateMessage();
+
+            if (params.get('enviat') === '1') {
+                showSuccess();
+                return;
+            }
+
+            const fields = {
+                name: {
+                    input: document.getElementById('name'),
+                    error: document.getElementById('nameError'),
+                    validate: value => value.trim().length >= 2,
+                    message: 'Escriu el teu nom complet.'
+                },
+                email: {
+                    input: document.getElementById('email'),
+                    error: document.getElementById('emailError'),
+                    validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
+                    message: 'Escriu una adreça electrònica vàlida.'
+                },
+                phone: {
+                    input: document.getElementById('phone'),
+                    error: document.getElementById('phoneError'),
+                    validate: value => value.replace(/\D/g, '').length >= 7,
+                    message: 'Escriu un número de telèfon vàlid.'
+                }
+            };
+
+            function validateField(field) {
+                const valid = field.validate(field.input.value);
+                field.input.setAttribute('aria-invalid', String(!valid));
+                field.error.textContent = valid ? '' : field.message;
+                return valid;
+            }
+
+            function updateMessage() {
+                const phone = document.getElementById('phone').value.trim();
+                document.getElementById('message').value =
+                    `CONFIRMACIÓ D'ASSISTÈNCIA\n\n` +
+                    `Dia de la invitació: ${day}\n` +
+                    `Hora d'inici de l'obra: 20.00 h\n` +
+                    `Telèfon: ${phone}`;
+            }
+
+            Object.values(fields).forEach(field => {
+                field.input.addEventListener('blur', () => validateField(field));
+                field.input.addEventListener('input', () => {
+                    if (field.input.getAttribute('aria-invalid') === 'true') {
+                        validateField(field);
+                    }
+                    if (field.input.id === 'phone') {
+                        updateMessage();
+                    }
+                });
+            });
+
+            form.addEventListener('submit', async event => {
+                event.preventDefault();
+                formMessage.textContent = '';
+
+                const validationResults = Object.values(fields).map(validateField);
+                const allValid = validationResults.every(Boolean);
+                if (!allValid) {
+                    const firstInvalid = Object.values(fields).find(field => field.input.getAttribute('aria-invalid') === 'true');
+                    firstInvalid.input.focus();
+                    return;
+                }
+
+                updateMessage();
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviant confirmació…';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('No hem pogut enviar la confirmació. Torna-ho a provar.');
+                    }
+
+                    showSuccess();
+                } catch (error) {
+                    formMessage.textContent = error.message || 'Hi ha hagut un problema de connexió. Torna-ho a provar.';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Confirmo la meva assistència';
+                }
+            });
+
+            function showSuccess() {
+                form.hidden = true;
+                success.hidden = false;
+                success.focus();
+            }
+        });
+    </script>
 </body>
 </html>
