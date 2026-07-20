@@ -6,13 +6,15 @@ export async function onRequestPost(context) {
     const email = formData.get('email');
     const subjectValue = formData.get('subject');
     const message = formData.get('message');
+    const phone = formData.get('phone');
 
     const subjects = {
       'info': 'Informació general',
       'socia': 'Fer-me sòcia o soci',
       'laboratori': 'Laboratori de formació',
       'collaboracio': 'Propostes de col·laboració',
-      'altres': 'Altres consultes'
+      'altres': 'Altres consultes',
+      'assistencia': "Confirmació d'assistència"
     };
     const subjectText = subjects[subjectValue] || 'Consulta Web';
 
@@ -27,7 +29,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Formulari Web La Columna Teatre <hola@lacolumnateatre.org>',
+        from: 'Formulari Web La Columna <hola@lacolumnateatre.org>',
         to: ['hola@lacolumnateatre.org'],
         reply_to: email,
         subject: `[WEB] ${subjectText} - de ${name}`,
@@ -35,6 +37,7 @@ export async function onRequestPost(context) {
               `--------------------------------------------------\n` +
               `Nom: ${name}\n` +
               `Email: ${email}\n` +
+              (phone ? `Telèfon: ${phone}\n` : '') +
               `Motiu: ${subjectText}\n` +
               `--------------------------------------------------\n\n` +
               `Missatge:\n${message}`
